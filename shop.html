@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop All Products | Farm-Ottah</title>
+    <link rel="icon" href="assets/images/Farm-Ottah Logo.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         HEADER & NAV
+    ====================================================== -->
+    <header class="home-header">
+      <nav aria-label="Main navigation">
+        <h1 class="logo"><a href="index.html" style="color:inherit; text-decoration:none;">FARM<span>-OTTAH</span></a></h1>
+
+        <ul id="navLinks" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button
+            class="cart-btn"
+            onclick="toggleCart()"
+            aria-label="Open cart"
+            aria-haspopup="dialog"
+          >
+            🛒 Cart (<span id="cartCount">0</span>)
+          </button>
+
+          <button
+            class="hamburger"
+            id="hamburger"
+            onclick="toggleNav()"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- =====================================================
+         CART DRAWER
+    ====================================================== -->
+    <aside
+      class="cart-drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Shopping cart"
+    >
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button onclick="toggleCart()" aria-label="Close cart">✕</button>
+      </div>
+
+      <div id="cartItems" aria-live="polite">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+
+      <footer class="cart-footer" id="cartFooter" style="display: none">
+        <p class="cart-total">Total: <strong id="cartTotal">₦0</strong></p>
+
+        <section
+          class="customer-form"
+          id="customerForm"
+          aria-label="Customer details"
+        >
+          <p class="form-label">Your details for order confirmation:</p>
+          <input type="text" id="custName" placeholder="Full Name *" required autocomplete="name" />
+          <input type="email" id="custEmail" placeholder="Email Address *" required autocomplete="email" />
+          <input type="tel" id="custPhone" placeholder="Phone Number *" required autocomplete="tel" />
+          <input type="text" id="custAddress" placeholder="Delivery Address *" required autocomplete="street-address" />
+        </section>
+
+        <div class="checkout-btns">
+          <button class="btn-whatsapp" onclick="orderViaWhatsapp()">
+            <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <path d="M16.003 3C9.376 3 4 8.373 4 15c0 2.385.67 4.61 1.832 6.5L4 29l7.695-1.807A12.94 12.94 0 0016.003 28c6.625 0 12-5.373 12-12S22.628 3 16.003 3zm0 22c-1.92 0-3.726-.502-5.287-1.38l-.378-.214-4.566 1.074 1.097-4.446-.236-.39A9.942 9.942 0 016.003 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.485 10-9.997 10zm5.49-7.43c-.302-.15-1.783-.877-2.059-.977-.276-.1-.477-.15-.678.15-.2.3-.778.977-.953 1.178-.175.2-.351.225-.652.075-.3-.15-1.267-.465-2.41-1.485-.891-.794-1.492-1.774-1.667-2.074-.175-.3-.018-.463.131-.612.135-.134.302-.35.452-.525.151-.175.2-.3.302-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.632-.928-2.235-.244-.587-.493-.508-.678-.517l-.577-.01c-.2 0-.525.075-.8.375s-1.05 1.027-1.05 2.507 1.075 2.907 1.225 3.107c.15.2 2.117 3.23 5.127 4.53.717.31 1.277.494 1.714.633.72.228 1.376.196 1.894.119.578-.086 1.782-.728 2.034-1.432.251-.703.251-1.306.176-1.432-.076-.126-.276-.2-.577-.35z" />
+            </svg>
+            Order via WhatsApp
+          </button>
+
+          <p class="checkout-divider" role="separator">or pay online</p>
+
+          <button class="btn-paystack" onclick="initiatePaystack()">
+            💳 Pay with Card / Transfer (₦<span id="paystackTotal">0</span>)
+          </button>
+        </div>
+
+        <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+      </footer>
+    </aside>
+
+    <div
+      class="cart-overlay"
+      id="cartOverlay"
+      onclick="toggleCart()"
+      aria-hidden="true"
+    ></div>
+
+    <!-- =====================================================
+         PAGE INTRO
+    ====================================================== -->
+    <section aria-label="Shop intro" style="padding-top: 45px; padding-bottom: 0;">
+      <div class="container">
+        <h2 class="section-title" style="margin-bottom: 10px;">Shop All Products</h2>
+        <p style="text-align:center; color:#666; margin-bottom: 10px;">
+          Browse every category — fresh, frozen, and everything in between.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         CATEGORIES
+    ====================================================== -->
+    <section id="categories" aria-labelledby="categories-title">
+      <div class="container">
+        <h2 class="section-title" id="categories-title">Shop Categories</h2>
+
+        <ul class="grid" role="list">
+          <li class="category" onclick="goToShop('all')" data-filter="all" role="button" tabindex="0" aria-label="Show all products">🛒 All Products</li>
+          <li class="category" onclick="goToShop('vegetables')" data-filter="vegetables" role="button" tabindex="0" aria-label="Show vegetables">🥬 Vegetables</li>
+          <li class="category" onclick="goToShop('grains')" data-filter="grains" role="button" tabindex="0" aria-label="Show grains">🌾 Grains</li>
+          <li class="category" onclick="goToShop('tubers')" data-filter="tubers" role="button" tabindex="0" aria-label="Show tubers">🍠 Tubers</li>
+          <li class="category" onclick="goToShop('fruits')" data-filter="fruits" role="button" tabindex="0" aria-label="Show fruits">🍎 Fruits</li>
+          <li class="category" onclick="goToShop('livestock')" data-filter="livestock" role="button" tabindex="0" aria-label="Show livestock">🐐 Livestock</li>
+          <li class="category" onclick="goToShop('frozen-foods')" data-filter="frozen-foods" role="button" tabindex="0" aria-label="Show frozen foods">🧊 Frozen Foods</li>
+          <li class="category" onclick="goToShop('eggs-and-dairy')" data-filter="eggs-and-dairy" role="button" tabindex="0" aria-label="Show eggs and dairy">🥚 Eggs &amp; Dairy</li>
+          <li class="category" onclick="goToShop('oil-and-pantry')" data-filter="oil-and-pantry" role="button" tabindex="0" aria-label="Show oils and pantry">🛢️ Oils &amp; Pantry</li>
+          <li class="category" onclick="goToShop('nuts-and-seeds')" data-filter="nuts-and-seeds" role="button" tabindex="0" aria-label="Show nuts and seeds">🥜 Nuts &amp; Seeds</li>
+          <li class="category" onclick="goToShop('spices')" data-filter="spices" role="button" tabindex="0" aria-label="Show spices and condiments">🌿 Spices</li>
+          <li class="category" onclick="goToShop('festive-packages')" data-filter="festive-packages" role="button" tabindex="0" aria-label="Show festive packages">🎁 Festive Packages</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PRODUCTS
+    ====================================================== -->
+    <section id="products" aria-labelledby="products-title">
+      <div class="container">
+        <h2 class="section-title" id="products-title">Products</h2>
+        <p id="activeFilter" class="filter-label" aria-live="polite"></p>
+
+        <ul class="products" id="productGrid" role="list"></ul>
+
+        <p
+          id="noResults"
+          role="status"
+          aria-live="polite"
+          style="display: none; text-align: center; color: #888"
+        >
+          No products found in this category.
+        </p>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer aria-label="Site footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>FARM-OTTAH</h2>
+          <p>Premium farm produce marketplace delivering trusted freshness nationwide.</p>
+          <a href="index.html">← Back to Home</a>
+        </div>
+
+        <address>
+          <h3>Contact</h3>
+          <a href="https://wa.me/2348121156043" target="_blank" rel="noopener noreferrer">+234 812 115 6043</a>
+          <a href="mailto:support@farmottah.com">support@farmottah.com</a>
+        </address>
+      </div>
+      <p class="footer-copy">&copy; 2026 Farm-Ottah. All rights reserved.</p>
+    </footer>
+
+    <button
+      class="scroll-top"
+      id="scrollTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Scroll to top"
+    >
+      ↑
+    </button>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="assets/js/product.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

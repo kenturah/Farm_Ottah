@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Farm-Ottah | Premium Nigerian Farm Marketplace</title>
+    <link rel="icon" href="assets/images/Farm-Ottah Logo.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         HEADER & NAV
+    ====================================================== -->
+    <header class="home-header">
+      <nav aria-label="Main navigation">
+        <h1 class="logo">FARM<span>-OTTAH</span></h1>
+
+        <ul id="navLinks" role="list">
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="#featured">Featured</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <button
+            class="cart-btn"
+            onclick="toggleCart()"
+            aria-label="Open cart"
+            aria-haspopup="dialog"
+          >
+            🛒 Cart (<span id="cartCount">0</span>)
+          </button>
+
+          <button
+            class="hamburger"
+            id="hamburger"
+            onclick="toggleNav()"
+            aria-label="Toggle navigation"
+            aria-expanded="false"
+            aria-controls="navLinks"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- =====================================================
+         CART DRAWER
+    ====================================================== -->
+    <aside
+      class="cart-drawer"
+      id="cartDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Shopping cart"
+    >
+      <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button onclick="toggleCart()" aria-label="Close cart">✕</button>
+      </div>
+
+      <!-- Cart items are injected here by JS -->
+      <div id="cartItems" aria-live="polite">
+        <p class="cart-empty">Your cart is empty.</p>
+      </div>
+
+      <footer class="cart-footer" id="cartFooter" style="display: none">
+        <p class="cart-total">Total: <strong id="cartTotal">₦0</strong></p>
+
+        <!-- Customer details shown before Paystack -->
+        <section
+          class="customer-form"
+          id="customerForm"
+          aria-label="Customer details"
+        >
+          <p class="form-label">Your details for order confirmation:</p>
+          <input
+            type="text"
+            id="custName"
+            placeholder="Full Name *"
+            required
+            autocomplete="name"
+          />
+          <input
+            type="email"
+            id="custEmail"
+            placeholder="Email Address *"
+            required
+            autocomplete="email"
+          />
+          <input
+            type="tel"
+            id="custPhone"
+            placeholder="Phone Number *"
+            required
+            autocomplete="tel"
+          />
+          <input
+            type="text"
+            id="custAddress"
+            placeholder="Delivery Address *"
+            required
+            autocomplete="street-address"
+          />
+        </section>
+
+        <div class="checkout-btns">
+          <!-- WhatsApp order -->
+          <button class="btn-whatsapp" onclick="orderViaWhatsapp()">
+            <svg
+              viewBox="0 0 32 32"
+              fill="white"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path
+                d="M16.003 3C9.376 3 4 8.373 4 15c0 2.385.67 4.61 1.832 6.5L4 29l7.695-1.807A12.94 12.94 0 0016.003 28c6.625 0 12-5.373 12-12S22.628 3 16.003 3zm0 22c-1.92 0-3.726-.502-5.287-1.38l-.378-.214-4.566 1.074 1.097-4.446-.236-.39A9.942 9.942 0 016.003 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.485 10-9.997 10zm5.49-7.43c-.302-.15-1.783-.877-2.059-.977-.276-.1-.477-.15-.678.15-.2.3-.778.977-.953 1.178-.175.2-.351.225-.652.075-.3-.15-1.267-.465-2.41-1.485-.891-.794-1.492-1.774-1.667-2.074-.175-.3-.018-.463.131-.612.135-.134.302-.35.452-.525.151-.175.2-.3.302-.5.1-.2.05-.375-.025-.525-.075-.15-.678-1.632-.928-2.235-.244-.587-.493-.508-.678-.517l-.577-.01c-.2 0-.525.075-.8.375s-1.05 1.027-1.05 2.507 1.075 2.907 1.225 3.107c.15.2 2.117 3.23 5.127 4.53.717.31 1.277.494 1.714.633.72.228 1.376.196 1.894.119.578-.086 1.782-.728 2.034-1.432.251-.703.251-1.306.176-1.432-.076-.126-.276-.2-.577-.35z"
+              />
+            </svg>
+            Order via WhatsApp
+          </button>
+
+          <p class="checkout-divider" role="separator">or pay online</p>
+
+          <!-- Paystack -->
+          <button class="btn-paystack" onclick="initiatePaystack()">
+            💳 Pay with Card / Transfer (₦<span id="paystackTotal">0</span>)
+          </button>
+        </div>
+
+        <button class="clear-btn" onclick="clearCart()">Clear Cart</button>
+      </footer>
+    </aside>
+
+    <!-- Overlay behind cart drawer -->
+    <div
+      class="cart-overlay"
+      id="cartOverlay"
+      onclick="toggleCart()"
+      aria-hidden="true"
+    ></div>
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="hero-content">
+        <h2>Fresh Farm Products Delivered Nationwide</h2>
+        <p>
+          Premium Nigerian agricultural marketplace for homes, restaurants,
+          events &amp; gifts.
+        </p>
+        <a href="#featured" class="btn">Shop Now</a>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         FEATURED PRODUCTS (sliding, not full catalog)
+    ====================================================== -->
+    <section id="featured" aria-labelledby="featured-title">
+      <div class="container">
+        <h2 class="section-title" id="featured-title">Featured Products</h2>
+
+        <div class="featured-slider">
+          <button
+            class="slider-arrow"
+            onclick="manualSlide(-1)"
+            aria-label="Previous featured products"
+          >
+            ‹
+          </button>
+
+          <!-- Curated product cards injected here by JS, auto-slides every 2s -->
+          <ul class="products featured-track" id="featuredTrack" role="list"></ul>
+
+          <button
+            class="slider-arrow"
+            onclick="manualSlide(1)"
+            aria-label="Next featured products"
+          >
+            ›
+          </button>
+        </div>
+
+        <div class="shop-all-wrap">
+          <a href="shop.html" class="btn">Shop All Categories →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         GIFT ORDERS
+    ====================================================== -->
+    <section aria-labelledby="gift-title">
+      <div class="container">
+        <h2 class="section-title" id="gift-title">Gift Orders</h2>
+        <div class="delivery">
+          <p>
+            Send food packages to family, friends &amp; loved ones across
+            Nigeria.
+          </p>
+          <br />
+          <a
+            href="https://wa.me/2348121156043"
+            class="btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Order Gift Package</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         TESTIMONIALS
+    ====================================================== -->
+    <section id="reviews" aria-labelledby="reviews-title">
+      <div class="container">
+        <h2 class="section-title" id="reviews-title">What Customers Say</h2>
+
+        <ul class="testimonials" role="list">
+          <li class="testimonial">
+            <blockquote>
+              <p>
+                "Very fresh produce and fast delivery to Lagos. Premium
+                service!"
+              </p>
+              <h3><cite>— Adaeze, Lagos</cite></h3>
+            </blockquote>
+          </li>
+          <li class="testimonial">
+            <blockquote>
+              <p>
+                "Ordered goat meat for celebration. Clean packaging and
+                excellent quality."
+              </p>
+              <h3><cite>— Chinedu, Enugu</cite></h3>
+            </blockquote>
+          </li>
+          <li class="testimonial">
+            <blockquote>
+              <p>
+                "Best online farm store I've used in Nigeria. Highly recommend!"
+              </p>
+              <h3><cite>— Tunde, Abuja</cite></h3>
+            </blockquote>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         DELIVERY COVERAGE
+    ====================================================== -->
+    <section aria-labelledby="delivery-title">
+      <div class="container">
+        <div class="delivery">
+          <h2 id="delivery-title">Delivery Coverage</h2>
+          <p>
+            Lagos • Abuja • Port Harcourt • Ibadan • Benin • Enugu • Kano •
+            Nationwide Dispatch
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer id="contact" aria-label="Site footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>FARM-OTTAH</h2>
+          <p>
+            Premium farm produce marketplace delivering trusted freshness
+            nationwide.
+          </p>
+        </div>
+
+        <address>
+          <h3>Contact</h3>
+          <a
+            href="https://wa.me/2348121156043"
+            target="_blank"
+            rel="noopener noreferrer"
+            >+234 812 115 6043</a
+          >
+          <a href="mailto:support@farmottah.com">support@farmottah.com</a>
+          <a
+            href="https://wa.me/2348121156043"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp Orders</a
+          >
+        </address>
+
+        <div class="follow-us" aria-label="Social media links">
+          <h3>Follow Us</h3>
+          <a
+            href="https://instagram.com/farmottah"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram</a
+          >
+          <a
+            href="https://facebook.com/farmottah"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Facebook</a
+          >
+          <a
+            href="https://twitter.com/farmottah"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Twitter/X</a
+          >
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 Farm-Ottah. All rights reserved.</p>
+    </footer>
+
+    <!-- =====================================================
+         UTILITIES
+    ====================================================== -->
+
+    <!-- Scroll to top -->
+    <button
+      class="scroll-top"
+      id="scrollTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Scroll to top"
+    >
+      ↑
+    </button>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="assets/js/product.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
