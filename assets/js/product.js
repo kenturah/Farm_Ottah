@@ -557,7 +557,7 @@ const products = [
       {
         id: "eggs-006",
         name: "Local Yoghurt (Fura da Nono)",
-        image: "assets/images/fura.jpg",
+        image: "assets/images/Fura.jpg",
         variants: [
           { size: "Small Cup", price: 500 },
           { size: "Large Cup", price: 1000 },
@@ -704,7 +704,7 @@ const products = [
       {
         id: "festive-001",
         name: "Eid / Christmas Goat Package",
-        image: "assets/images/Christmas-goat.jpg",
+        image: "assets/images/Christmas-goat.png",
         variants: [
           { size: "Medium Goat + Spices", price: 95000 },
           { size: "Large Goat + Spices", price: 135000 },
@@ -713,7 +713,7 @@ const products = [
       {
         id: "festive-002",
         name: "Celebration Chicken Pack",
-        image: "assets/images/Festive-chicken.jpg",
+        image: "assets/images/Festive-chicken.png",
         variants: [
           { size: "3 Live Chickens", price: 38000 },
           { size: "5 Live Chickens", price: 60000 },
