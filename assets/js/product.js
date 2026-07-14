@@ -291,7 +291,7 @@ const products = [
       {
         id: "frozen-002",
         name: "Frozen Turkey",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Frozen-Turkey.jpg",
         variants: [
           { size: "Whole (4–5 kg)", price: 28000 },
           { size: "Whole (6–8 kg)", price: 40000 },
@@ -300,7 +300,7 @@ const products = [
       {
         id: "frozen-003",
         name: "Frozen Croaker Fish",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Frozen-Croaker.jpeg",
         variants: [
           { size: "1 kg", price: 7000 },
           { size: "5 kg", price: 32000 },
@@ -309,7 +309,7 @@ const products = [
       {
         id: "frozen-004",
         name: "Frozen Tilapia Fish",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/frozen-tilapia.jpg",
         variants: [
           { size: "1 kg", price: 5500 },
           { size: "5 kg", price: 26000 },
@@ -318,7 +318,7 @@ const products = [
       {
         id: "frozen-005",
         name: "Frozen Shrimp (Deveined)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/shrimp.jpg",
         variants: [
           { size: "500g Pack", price: 8000 },
           { size: "1 kg Pack", price: 15000 },
@@ -327,7 +327,7 @@ const products = [
       {
         id: "frozen-006",
         name: "Frozen Catfish (Point & Kill)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Frozzen-catfish.png",
         variants: [
           { size: "1 kg", price: 8500 },
           { size: "5 kg", price: 40000 },
@@ -343,7 +343,7 @@ const products = [
       {
         id: "pantry-001",
         name: "Red Palm Oil",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/palm-oil.jpg",
         variants: [
           { size: "1 Litre", price: 2500 },
           { size: "4 Litres (Gallon)", price: 9500 },
@@ -353,7 +353,7 @@ const products = [
       {
         id: "pantry-002",
         name: "Groundnut Oil",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/groundnut oil.jpg",
         variants: [
           { size: "1 Litre", price: 3500 },
           { size: "4 Litres (Gallon)", price: 13000 },
@@ -362,7 +362,7 @@ const products = [
       {
         id: "pantry-003",
         name: "Dried Crayfish",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/dried-crayfish.jpg",
         variants: [
           { size: "Paint Bucket", price: 22000 },
           { size: "Small Bag", price: 40000 },
@@ -371,7 +371,7 @@ const products = [
       {
         id: "pantry-004",
         name: "Dried Pepper (Blended)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/dried-pepper.jpg",
         variants: [
           { size: "500g Pack", price: 3000 },
           { size: "1 kg Pack", price: 5500 },
@@ -380,7 +380,7 @@ const products = [
       {
         id: "pantry-005",
         name: "Ogiri (Locust Bean Paste)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Ogiri.jpg",
         variants: [
           { size: "Small Pack", price: 500 },
           { size: "Bulk (20 Wraps)", price: 8000 },
@@ -389,7 +389,7 @@ const products = [
       {
         id: "pantry-006",
         name: "Iru (Fermented Locust Beans)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Iru.jpg",
         variants: [
           { size: "Small Pack", price: 800 },
           { size: "Paint Bucket", price: 12000 },
@@ -398,19 +398,10 @@ const products = [
       {
         id: "pantry-007",
         name: "Stockfish (Okporoko)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Stockfish.jpg",
         variants: [
           { size: "Small Size", price: 5000 },
           { size: "Large Size", price: 12000 },
-        ],
-      },
-      {
-        id: "pantry-008",
-        name: "Dried Ede (Cocoyam Flour)",
-        image: "assets/images/genericImg.jpg",
-        variants: [
-          { size: "500g Pack", price: 2500 },
-          { size: "1 kg Pack", price: 4500 },
         ],
       },
     ],
@@ -520,7 +511,7 @@ const products = [
       {
         id: "eggs-001",
         name: "Farm Fresh Eggs",
-        image: "assets/images/Eggs.png",
+        image: "assets/images/fresh_eggs.jpeg",
         variants: [
           { size: "6 Pieces", price: 2500 },
           { size: "1 Crate (30 pcs)", price: 11500 },
@@ -530,7 +521,7 @@ const products = [
       {
         id: "eggs-002",
         name: "Quail Eggs",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Quail_eggs.jpg",
         variants: [
           { size: "20 Pieces", price: 2000 },
           { size: "50 Pieces", price: 4500 },
@@ -539,7 +530,7 @@ const products = [
       {
         id: "eggs-003",
         name: "Duck Eggs",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/duck eggs.jpg",
         variants: [
           { size: "6 Pieces", price: 3500 },
           { size: "1 Crate (30 pcs)", price: 15000 },
@@ -548,7 +539,7 @@ const products = [
       {
         id: "eggs-004",
         name: "Fresh Cow Milk",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/cow-milk.jpg",
         variants: [
           { size: "500 ml", price: 1500 },
           { size: "1 Litre", price: 2800 },
@@ -557,7 +548,7 @@ const products = [
       {
         id: "eggs-005",
         name: "Fresh Goat Milk",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/goat-milk.jpg",
         variants: [
           { size: "500 ml", price: 2000 },
           { size: "1 Litre", price: 3800 },
@@ -566,7 +557,7 @@ const products = [
       {
         id: "eggs-006",
         name: "Local Yoghurt (Fura da Nono)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/fura.jpg",
         variants: [
           { size: "Small Cup", price: 500 },
           { size: "Large Cup", price: 1000 },
@@ -575,7 +566,7 @@ const products = [
       {
         id: "eggs-007",
         name: "Wara (Local Cheese)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/wara.png",
         variants: [
           { size: "Small Pack", price: 1500 },
           { size: "Large Pack", price: 3000 },
@@ -591,7 +582,7 @@ const products = [
       {
         id: "nuts-001",
         name: "Raw Groundnuts (Peanuts)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/raw-groundnut.png",
         variants: [
           { size: "Paint Bucket", price: 8000 },
           { size: "Small Bag", price: 15000 },
@@ -600,7 +591,7 @@ const products = [
       {
         id: "nuts-002",
         name: "Egusi (Melon Seeds)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/egusi.jpg",
         variants: [
           { size: "Paint Bucket", price: 18000 },
           { size: "Small Bag", price: 32000 },
@@ -609,7 +600,7 @@ const products = [
       {
         id: "nuts-003",
         name: "Sesame Seeds (Benne)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Sesame.jpg",
         variants: [
           { size: "500g Pack", price: 4000 },
           { size: "Small Bag", price: 20000 },
@@ -618,7 +609,7 @@ const products = [
       {
         id: "nuts-004",
         name: "Tiger Nuts (Ofio)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/tiger-nuts.jpg",
         variants: [
           { size: "Paint Bucket", price: 7000 },
           { size: "Small Bag", price: 13000 },
@@ -627,7 +618,7 @@ const products = [
       {
         id: "nuts-005",
         name: "Cashew Nuts (Raw)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/cashew-nuts.jpg",
         variants: [
           { size: "500g Pack", price: 6500 },
           { size: "1 kg Pack", price: 12000 },
@@ -643,7 +634,7 @@ const products = [
       {
         id: "spices-001",
         name: "Uziza Leaves (Dried)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Uziza(dried).jpg",
         variants: [
           { size: "Small Pack", price: 1000 },
           { size: "Large Pack", price: 2500 },
@@ -652,7 +643,7 @@ const products = [
       {
         id: "spices-002",
         name: "Ehuru (Calabash Nutmeg)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/ehuru.jpg",
         variants: [
           { size: "Small Pack", price: 1500 },
           { size: "Large Pack", price: 3500 },
@@ -661,7 +652,7 @@ const products = [
       {
         id: "spices-003",
         name: "Uda (Negro Pepper)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Uda.jpg",
         variants: [
           { size: "Small Pack", price: 800 },
           { size: "Large Pack", price: 2000 },
@@ -670,7 +661,7 @@ const products = [
       {
         id: "spices-004",
         name: "Uziza Seeds",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/uziza-seeds.jpg",
         variants: [
           { size: "Small Pack", price: 1200 },
           { size: "Large Pack", price: 3000 },
@@ -679,7 +670,7 @@ const products = [
       {
         id: "spices-005",
         name: "Turmeric (Dried / Ground)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/tumeric.jpg",
         variants: [
           { size: "100g Pack", price: 1500 },
           { size: "500g Pack", price: 6000 },
@@ -697,7 +688,7 @@ const products = [
       {
         id: "spices-007",
         name: "Garlic (Fresh Bulbs)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/garlic.jpg",
         variants: [
           { size: "250g", price: 2500 },
           { size: "1 kg", price: 8500 },
@@ -713,7 +704,7 @@ const products = [
       {
         id: "festive-001",
         name: "Eid / Christmas Goat Package",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Christmas-goat.jpg",
         variants: [
           { size: "Medium Goat + Spices", price: 95000 },
           { size: "Large Goat + Spices", price: 135000 },
@@ -722,7 +713,7 @@ const products = [
       {
         id: "festive-002",
         name: "Celebration Chicken Pack",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Festive-chicken.jpg",
         variants: [
           { size: "3 Live Chickens", price: 38000 },
           { size: "5 Live Chickens", price: 60000 },
@@ -731,7 +722,7 @@ const products = [
       {
         id: "festive-003",
         name: "New Year Foodstuff Bundle",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Foodstuff-bundle.jpg",
         variants: [
           { size: "Family Pack (Feeds 6–8)", price: 120000 },
           { size: "Extended Pack (Feeds 10–15)", price: 200000 },
@@ -740,7 +731,7 @@ const products = [
       {
         id: "festive-004",
         name: "Ram (Sallah Special)",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Festive-ram.jpg",
         variants: [
           { size: "Medium Ram", price: 180000 },
           { size: "Large Ram", price: 280000 },
@@ -749,7 +740,7 @@ const products = [
       {
         id: "festive-005",
         name: "Corporate Gift Hamper",
-        image: "assets/images/genericImg.jpg",
+        image: "assets/images/Hamper-gift.png",
         variants: [
           { size: "Standard Pack", price: 45000 },
           { size: "Premium Pack", price: 85000 },
